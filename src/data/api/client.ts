@@ -35,7 +35,7 @@ import { ApiError, simulateNetwork } from './simulation';
  * The seam between the UI and its data.
  *
  * Every function here returns a promise, accepts an `AbortSignal` and can
- * fail — exactly the shape `fetch` would have. Swapping this file for one that
+ * fail - exactly the shape `fetch` would have. Swapping this file for one that
  * talks to a real server would not require a single change above it, which is
  * the only reason a mock layer is worth building rather than importing the
  * dataset directly into components.

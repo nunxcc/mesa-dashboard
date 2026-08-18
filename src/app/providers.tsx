@@ -18,7 +18,7 @@ function createQueryClient(): QueryClient {
         retryDelay: 400,
 
         // Refetching every time the tab regains focus is the right default for
-        // live operational data and the wrong one here — it would burn a
+        // live operational data and the wrong one here - it would burn a
         // second of skeletons every time someone alt-tabs back.
         refetchOnWindowFocus: false,
       },

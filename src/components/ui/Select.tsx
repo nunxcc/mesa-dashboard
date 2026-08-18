@@ -23,7 +23,7 @@ export interface SelectProps<T extends string>
  * A native `<select>` with custom chrome.
  *
  * Deliberately not a bespoke listbox. The native control gets keyboard
- * interaction, typeahead, form association and — on a phone — the platform's
+ * interaction, typeahead, form association and - on a phone - the platform's
  * own wheel picker, all of which a div-based replacement has to rebuild badly.
  * The only thing worth styling is the box around it.
  */

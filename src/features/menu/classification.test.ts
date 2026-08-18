@@ -51,7 +51,7 @@ describe('classifyMenu', () => {
 
   it('excludes items that sold nothing', () => {
     // An unsold item carries no signal, and counting it would drag both
-    // medians toward zero — promoting genuinely weak sellers into the
+    // medians toward zero - promoting genuinely weak sellers into the
     // "popular" half and mislabelling the whole menu.
     const withUnsold = [...menu, performance('never-ordered', 0, 1000, 300)];
     const result = classifyMenu(withUnsold);
@@ -69,7 +69,7 @@ describe('classifyMenu', () => {
       performance('quiet', 10, 300, 250),
     ];
     // Four items, so the median contribution falls between two values rather
-    // than landing exactly on the subject's own — with an odd count the
+    // than landing exactly on the subject's own - with an odd count the
     // subject would sit on its own threshold and pass the `>=` test.
     const richMenu = [
       performance('subject', 100, 800, 300),

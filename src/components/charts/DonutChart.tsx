@@ -25,7 +25,7 @@ export interface DonutChartProps {
  * people actually want, and removing the centre wedges makes the small slices
  * easier to tell apart at the rim.
  *
- * Five channels is about the limit — past roughly seven categories a ranked
+ * Five channels is about the limit - past roughly seven categories a ranked
  * bar chart is simply easier to read, and this deliberately does not scale
  * beyond what it is good at.
  */

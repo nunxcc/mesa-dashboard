@@ -13,7 +13,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   iconAfter?: IconName;
   /**
    * Renders as a square icon-only button. `children` then becomes the
-   * accessible name rather than visible text, so it stays required — an
+   * accessible name rather than visible text, so it stays required - an
    * icon-only button with no label is invisible to a screen reader.
    */
   iconOnly?: boolean;

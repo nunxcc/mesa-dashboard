@@ -43,7 +43,7 @@
   min-width: 0;
 }
 
-/* The one place the display serif is allowed to appear at small size — it is
+/* The one place the display serif is allowed to appear at small size - it is
    a wordmark, not running text. */
 .wordmark {
   font-family: var(--font-display);

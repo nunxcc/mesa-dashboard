@@ -8,7 +8,7 @@ export interface NavItem {
   description: string;
 }
 
-/** Single source of truth for the nav — the sidebar and the mobile drawer
+/** Single source of truth for the nav - the sidebar and the mobile drawer
  *  both read it, so they cannot fall out of step. */
 export const NAV_ITEMS: NavItem[] = [
   {

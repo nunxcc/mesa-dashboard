@@ -46,7 +46,7 @@ export function MenuMatrix({ performance, loading = false, height = 380 }: MenuM
       .domain([0, Math.max(...points.map((point) => point.contribution), 1)])
       .nice(5)
       .range([innerHeight, 0]),
-    // Area, not radius, encodes revenue — sqrt is what stops a dish earning
+    // Area, not radius, encodes revenue - sqrt is what stops a dish earning
     // four times as much from looking sixteen times as important.
     r: scaleSqrt()
       .domain([0, Math.max(...points.map((point) => point.entry.grossRevenue), 1)])

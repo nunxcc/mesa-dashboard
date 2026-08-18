@@ -9,7 +9,7 @@
 export type Cents = number;
 
 /** Sales channels. `erasableSyntaxOnly` is on, so unions + const maps rather
- *  than TS enums — which is the better default anyway: these serialise as
+ *  than TS enums - which is the better default anyway: these serialise as
  *  plain strings and survive a round trip through a URL or an API. */
 export type Channel = 'dine_in' | 'takeaway' | 'uber_eats' | 'glovo' | 'bolt_food';
 
@@ -24,7 +24,7 @@ export interface ChannelMeta {
   /**
    * Share of gross order value taken by the platform. In-house channels are
    * zero. The delivery figures are the headline rates the marketplaces
-   * publicly quote for full-service (delivery included) plans — this spread
+   * publicly quote for full-service (delivery included) plans - this spread
    * is the whole point of the Channels page.
    */
   commissionRate: number;
@@ -102,7 +102,7 @@ export interface MenuItem {
   station: Station;
   /** Menu price, gross, per unit. */
   price: Cents;
-  /** Food cost per unit — what the ingredients cost the kitchen. */
+  /** Food cost per unit - what the ingredients cost the kitchen. */
   cost: Cents;
   vegetarian: boolean;
 }
@@ -128,7 +128,7 @@ export interface Order {
   discount: Cents;
   /** Platform commission on (subtotal - discount). Zero for in-house. */
   commission: Cents;
-  /** Goes to the staff, not the business — never part of `net`. */
+  /** Goes to the staff, not the business - never part of `net`. */
   tip: Cents;
   /** What the business actually keeps: subtotal - discount - commission. */
   net: Cents;

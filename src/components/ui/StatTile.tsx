@@ -16,7 +16,7 @@ export interface StatTileProps {
    * things go wrong, so they colour the opposite way to revenue.
    */
   invertDelta?: boolean;
-  /** Replaces the delta with static text — for metrics with no comparison. */
+  /** Replaces the delta with static text - for metrics with no comparison. */
   footnote?: ReactNode;
   loading?: boolean;
   emphasis?: boolean;

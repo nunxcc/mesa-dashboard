@@ -15,7 +15,7 @@ import type { DateRange, OrderFilters, OrderSort, PageRequest, Paginated } from 
 
 /**
  * Pure aggregation over an order list. Everything here is a plain function of
- * its input — no dates read from the clock, no module state — which is what
+ * its input - no dates read from the clock, no module state - which is what
  * makes these testable and what lets the mock API and the eventual real one
  * share the same definitions of "gross revenue".
  */
@@ -344,7 +344,7 @@ export function paginate<T>(rows: readonly T[], { page, pageSize }: PageRequest)
   };
 }
 
-/** Commission as a share of gross, per channel — the Channels page headline. */
+/** Commission as a share of gross, per channel - the Channels page headline. */
 export function commissionRateOf(breakdown: ChannelBreakdown): number {
   if (breakdown.grossRevenue === 0) return CHANNEL_META[breakdown.channel].commissionRate;
   return breakdown.commissionPaid / breakdown.grossRevenue;

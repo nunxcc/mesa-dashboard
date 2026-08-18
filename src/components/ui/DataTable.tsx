@@ -39,7 +39,7 @@ export interface DataTableProps<T> {
  * Deliberately a real `<table>`: it is tabular data, so the element gives
  * screen readers row/column association and `aria-sort` for free. Sorting is
  * driven from the parent rather than held here, because the sort lives in the
- * URL — this component renders state, it does not own it.
+ * URL - this component renders state, it does not own it.
  */
 export function DataTable<T>({
   columns,

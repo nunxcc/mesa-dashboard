@@ -1,7 +1,7 @@
 /**
  * Knobs for the simulated network, exposed so the UI can drive them.
  *
- * The point is not novelty — it is that loading skeletons, retry buttons and
+ * The point is not novelty - it is that loading skeletons, retry buttons and
  * error boundaries are impossible to demonstrate against an API that always
  * succeeds in 0 ms. Being able to turn on failures from inside the running app
  * means the states can actually be shown to someone, rather than described.

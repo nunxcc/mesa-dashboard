@@ -4,7 +4,7 @@
  * `Math.random()` would regenerate a different dataset on every page load,
  * which makes screenshots inconsistent, tests non-deterministic and
  * "yesterday's revenue" change while you are looking at it. mulberry32 is a
- * small, well-distributed 32-bit generator — more than enough for fixtures,
+ * small, well-distributed 32-bit generator - more than enough for fixtures,
  * and it fits in a dozen lines.
  */
 export function mulberry32(seed: number): () => number {
@@ -49,7 +49,7 @@ export class Rng {
   }
 
   /**
-   * Box-Muller transform. Real-world quantities — ticket sizes, prep times —
+   * Box-Muller transform. Real-world quantities - ticket sizes, prep times -
    * cluster around a mean rather than spreading uniformly, and using a normal
    * distribution is most of what makes generated data stop looking generated.
    */

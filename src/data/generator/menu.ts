@@ -10,7 +10,7 @@ export interface MenuSeed extends MenuItem {
   popularity: number;
   /**
    * Whether the item is offered on delivery marketplaces. A bica does not
-   * survive twenty minutes on a scooter, and the real menus reflect that —
+   * survive twenty minutes on a scooter, and the real menus reflect that -
    * which is a large part of why delivery baskets look so different.
    */
   travelsWell: boolean;
@@ -19,7 +19,7 @@ export interface MenuSeed extends MenuItem {
 /**
  * Prices are the ones you would actually see on a tasca menu in Porto: an
  * espresso at 0,90 €, a francesinha at 12,90 €. Food costs sit at the ratios
- * the trade works to — roughly 30-35 % on mains, under 25 % on drinks, which
+ * the trade works to - roughly 30-35 % on mains, under 25 % on drinks, which
  * is exactly why the drinks attachment rate matters so much to the P&L.
  */
 export const MENU_SEEDS: readonly MenuSeed[] = [

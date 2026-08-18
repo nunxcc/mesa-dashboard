@@ -10,7 +10,7 @@
 }
 
 /* The display serif, used at the one size where it earns its keep. Every
-   other heading on the page is Inter — a serif at 14px is just harder to
+   other heading on the page is Inter - a serif at 14px is just harder to
    read, and using it everywhere would make this a magazine, not a tool. */
 .title {
   font-family: var(--font-display);

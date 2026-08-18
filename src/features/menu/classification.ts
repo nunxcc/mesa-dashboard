@@ -1,7 +1,7 @@
 import type { MenuItemPerformance } from '@/types/domain';
 
 /**
- * Menu engineering — the classification restaurants have used since Kasavana
+ * Menu engineering - the classification restaurants have used since Kasavana
  * and Smith formalised it in 1982. Each dish is placed by how often it sells
  * against how much it contributes per plate, and the quadrant it lands in
  * implies a specific action.
@@ -61,7 +61,7 @@ export interface ClassifiedMenu {
 }
 
 /**
- * Thresholds are the medians of this menu, not fixed numbers — the whole
+ * Thresholds are the medians of this menu, not fixed numbers - the whole
  * method is relative. A 4 € contribution is strong on a café menu and weak on
  * a steakhouse one, and hard-coding a cutoff would mislabel both.
  */

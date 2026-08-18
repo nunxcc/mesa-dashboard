@@ -1,9 +1,9 @@
 /*
- * Design tokens — two tiers.
+ * Design tokens - two tiers.
  *
  * Tier 1 (primitives) are raw values. Components must never reference them
  * directly; they only exist so the semantic tier has something to point at.
- * Tier 2 (semantic) describes intent — "the colour of a muted label" rather
+ * Tier 2 (semantic) describes intent - "the colour of a muted label" rather
  * than "warm grey 500". Retheming means remapping tier 2, never touching a
  * component.
  *
@@ -13,7 +13,7 @@
 
 :root {
   /* ---------------------------------------------------------------- *
-   * Tier 1 — primitives
+   * Tier 1 - primitives
    * ---------------------------------------------------------------- */
 
   /* Warm neutrals. Hue held at ~30deg so greys feel like paper, not steel. */
@@ -29,7 +29,7 @@
   --sand-900: #1f1b18;
   --sand-950: #141110;
 
-  /* Clay — the brand accent. Terracotta reads as food/hospitality and, more
+  /* Clay - the brand accent. Terracotta reads as food/hospitality and, more
      practically, is not the violet-blue every other dashboard ships with. */
   --clay-50: #fdf5f1;
   --clay-100: #fae7de;
@@ -67,7 +67,7 @@
   --blue-100: #d8e6ef;
 
   /* ---------------------------------------------------------------- *
-   * Tier 1 — dimensions (theme-independent)
+   * Tier 1 - dimensions (theme-independent)
    * ---------------------------------------------------------------- */
 
   /* 4px base. Named by step, not by pixel value, so the scale can shift. */
@@ -83,7 +83,7 @@
   --space-16: 4rem;
 
   /* Type scale, ~1.2 ratio off a 14px base. Dashboards read better at 14 than
-     at 16 — there is simply more to fit on screen. */
+     at 16 - there is simply more to fit on screen. */
   --text-2xs: 0.6875rem; /* 11px */
   --text-xs: 0.75rem; /* 12px */
   --text-sm: 0.8125rem; /* 13px */
@@ -133,7 +133,7 @@
   --content-max: 90rem;
 
   /* ---------------------------------------------------------------- *
-   * Tier 2 — semantic (light theme is the default)
+   * Tier 2 - semantic (light theme is the default)
    * ---------------------------------------------------------------- */
 
   --color-bg: var(--sand-50);
@@ -168,7 +168,7 @@
 
   --color-focus: var(--clay-500);
 
-  /* Grid lines want to be nearly invisible — present enough to guide the eye
+  /* Grid lines want to be nearly invisible - present enough to guide the eye
      along a value, quiet enough that the data stays the loudest thing. */
   --color-chart-grid: var(--sand-200);
   --color-chart-axis: var(--sand-400);
@@ -183,7 +183,7 @@
 }
 
 /*
- * Dark theme. Not an inversion — the neutrals stay warm, the accent is lifted
+ * Dark theme. Not an inversion - the neutrals stay warm, the accent is lifted
  * two steps (a mid terracotta goes muddy on near-black) and the categorical
  * series are re-picked rather than reused, because saturated mid-tones lose
  * separation against a dark ground.

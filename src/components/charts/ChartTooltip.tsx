@@ -9,7 +9,7 @@ export interface TooltipRow {
 }
 
 export interface ChartTooltipProps {
-  /** Position in container pixels — the anchor point, not the box origin. */
+  /** Position in container pixels - the anchor point, not the box origin. */
   x: number;
   y: number;
   containerWidth: number;
@@ -26,7 +26,7 @@ const ESTIMATED_WIDTH = 200;
  * Rendered as a sibling div rather than inside the SVG: text in SVG cannot
  * wrap, has no box model and would need every border and background drawn by
  * hand. It is `aria-hidden` because it mirrors information the chart already
- * exposes through its label and hidden data table — announcing it again on
+ * exposes through its label and hidden data table - announcing it again on
  * every pointer move would be noise.
  */
 export function ChartTooltip({ x, y, containerWidth, title, rows, footer }: ChartTooltipProps) {

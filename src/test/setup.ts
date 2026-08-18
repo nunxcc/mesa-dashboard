@@ -6,7 +6,7 @@ import { afterEach } from 'vitest';
  * Registered explicitly because this suite runs without `globals: true`.
  * React Testing Library only auto-registers its cleanup when a global
  * `afterEach` exists, so without this every test inherits the previous test's
- * DOM — and `screen` queries start matching elements from a render that was
+ * DOM - and `screen` queries start matching elements from a render that was
  * supposed to be long gone.
  */
 afterEach(cleanup);

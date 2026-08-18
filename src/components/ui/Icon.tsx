@@ -141,7 +141,7 @@ export function Icon({ name, size = 16, ...props }: IconProps) {
 }
 
 /**
- * The wordmark. A plate viewed from above with a fork to its left — legible at
+ * The wordmark. A plate viewed from above with a fork to its left - legible at
  * 20px in the sidebar, which is the only size that matters here.
  */
 export function Logo({ size = 24, ...props }: Omit<SVGProps<SVGSVGElement>, 'name'> & { size?: number }) {

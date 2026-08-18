@@ -49,7 +49,7 @@ export const PAGE_SIZE = 25;
 
 /**
  * Reads a comma-separated list, discarding anything not in `allowed`.
- * URLs are user-editable, so every value here is untrusted input — a bad
+ * URLs are user-editable, so every value here is untrusted input - a bad
  * `?channels=` must narrow to nothing rather than reach the filter logic.
  */
 function readList<T extends string>(raw: string | null, allowed: Set<string>): T[] {
@@ -108,7 +108,7 @@ export function useDashboardFilters(): DashboardFilters {
   /**
    * Resolved once per preset change rather than per render. Without the memo
    * every render produces a new `range` object, which changes the query key,
-   * which refetches, which renders — an infinite loop dressed up as a
+   * which refetches, which renders - an infinite loop dressed up as a
    * performance problem.
    */
   const range = useMemo(() => resolvePreset(preset), [preset]);
@@ -155,7 +155,7 @@ export function useDashboardFilters(): DashboardFilters {
     (key: string, values: string[]) => {
       update((params) => {
         // An empty list means "no filter", which is the absence of the param
-        // rather than an empty one — keeps shared URLs clean.
+        // rather than an empty one - keeps shared URLs clean.
         if (values.length === 0) params.delete(key);
         else params.set(key, values.join(','));
       });

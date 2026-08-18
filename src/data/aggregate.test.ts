@@ -7,7 +7,7 @@ import { emptyFilters, type DateRange } from './filters';
 /**
  * Ranges are built from local day boundaries, exactly as `resolvePreset` does.
  * Hand-writing a UTC midnight here instead would silently span an extra
- * calendar day for anyone running the suite outside UTC — the bucketing works
+ * calendar day for anyone running the suite outside UTC - the bucketing works
  * in local days because that is what "yesterday's takings" means to the person
  * reading the dashboard.
  */
@@ -28,7 +28,7 @@ describe('summarise', () => {
       makeOrder({ subtotal: 3000, status: 'refunded' }),
     ]);
 
-    // A cancelled order is not revenue that later vanished — it never
+    // A cancelled order is not revenue that later vanished - it never
     // existed, and including it would overstate every total on the page.
     expect(summary.grossRevenue).toBe(1000);
     expect(summary.orderCount).toBe(1);

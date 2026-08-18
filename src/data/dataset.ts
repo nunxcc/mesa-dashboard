@@ -14,7 +14,7 @@ let cache: Order[] | null = null;
 /**
  * Built once, on first use, and shared thereafter. Generation costs a few
  * hundred milliseconds and allocates a few thousand objects, so it must not
- * happen per query — the API layer above treats this as its database.
+ * happen per query - the API layer above treats this as its database.
  */
 export function getDataset(): readonly Order[] {
   if (cache === null) {

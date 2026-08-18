@@ -21,11 +21,11 @@ indistinguishable from a template.
 Restaurants have genuinely interesting economics, and they are visible in the
 data rather than invented for the demo:
 
-- **Delivery marketplaces take 25–30 % of every order.** Uber Eats, Glovo and
+- **Delivery marketplaces take 25-30 % of every order.** Uber Eats, Glovo and
   Bolt Food each charge a different rate, so channel mix moves the bottom line
   far more than headline revenue suggests. The Channels page exists for this.
 - **Ticket times degrade non-linearly under load.** A kitchen at 90 % capacity
-  is much more than 1.5× slower than one at 60 %, because tickets start
+  is much more than 1.5x slower than one at 60 %, because tickets start
   queueing behind each other.
 - **The highest-volume item is often the least profitable.** A café sells
   2 000 espressos at €0,72 margin. Menu engineering is the standard way to
@@ -35,9 +35,9 @@ data rather than invented for the demo:
 
 | Page         | What it does                                                                    |
 | ------------ | ------------------------------------------------------------------------------- |
-| **Overview** | KPIs against the preceding period, a gross-vs-net revenue trend, channel split, and a weekday × hour heatmap of when the kitchen is actually busy. |
-| **Orders**   | Every ticket. Filter by channel and status, search by reference, sort any column, page through — all of it driven from the URL. Select a row for the full money breakdown. |
-| **Menu**     | A menu engineering matrix — units sold against margin per plate, split at the median of each axis, classifying every dish as a Star, Plowhorse, Puzzle or Dog. |
+| **Overview** | KPIs against the preceding period, a gross-vs-net revenue trend, channel split, and a weekday x hour heatmap of when the kitchen is actually busy. |
+| **Orders**   | Every ticket. Filter by channel and status, search by reference, sort any column, page through. All of it driven from the URL. Select a row for the full money breakdown. |
+| **Menu**     | A menu engineering matrix: units sold against margin per plate, split at the median of each axis, classifying every dish as a Star, Plowhorse, Puzzle or Dog. |
 | **Channels** | What each sales channel returns after commission, and what that adds up to.       |
 
 ## Running it
@@ -73,7 +73,7 @@ latency, `AbortSignal` support, pagination, and failures you can turn on from
 the **Network** control in the top bar.
 
 That last part matters. Loading skeletons, retry paths and empty states are
-most of the work in a data-heavy UI and the least visible part of it, against
+most of the work in a data-heavy UI and the least visible part of it. Against
 a mock that always resolves instantly, none of them ever appear. Being able to
 switch on "Slow" or "Always fail" means those states can be shown to someone
 rather than described.
@@ -99,24 +99,24 @@ button steps through filter changes the way people already expect. It also
 removes a whole category of bug, because there is one copy of the state rather
 than one per component.
 
-Everything arriving from the URL is treated as untrusted `?channels=` with a
-value that is not a real channel narrows to nothing rather than reaching the
-filter logic. There are tests for exactly this.
+Everything arriving from the URL is treated as untrusted. A `?channels=` value
+that is not a real channel narrows to nothing rather than reaching the filter
+logic. There are tests for exactly this.
 
 ### The charts are hand-written SVG
 
 `d3-scale` and `d3-shape` do the maths; every element is React. This was the
 right call for four charts that all needed to look like one another and like
-the rest of the design system, a charting library would have meant fighting
+the rest of the design system. A charting library would have meant fighting
 its defaults on colour, typography and spacing to arrive somewhere similar.
 
 It also keeps them accessible on my terms: each chart carries a written
 summary of what it shows, plus a visually hidden data table, so the content is
 available to a screen reader rather than being an unlabelled `<svg>`.
 
-The heatmap is a real `<table>`, not SVG. A heatmap *is* a table, row
-headers, column headers, a value per cell, so the semantic element gives
-correct screen-reader navigation for free.
+The heatmap is a real `<table>`, not SVG. A heatmap *is* a table: row headers,
+column headers, a value per cell. The semantic element gives correct
+screen-reader navigation for free.
 
 ### CSS Modules over a utility framework
 
@@ -136,11 +136,11 @@ src/
   components/
     charts/     SVG chart primitives (frame, trend, donut, heatmap, tooltip)
     layout/     shell, sidebar, topbar, page header
-    ui/         button, card, table, drawer, badge, states…
+    ui/         button, card, table, drawer, badge, states...
   data/
     generator/  seeded PRNG, menu catalogue, demand model
     api/        the fake backend and its network simulation
-    aggregate.ts  pure aggregation — the definitions of "gross revenue"
+    aggregate.ts  pure aggregation (defines "gross revenue")
     queries.ts    TanStack Query hooks and the query-key factory
   features/     domain logic: filters, menu classification, order detail
   lib/          formatting, hooks, theme
@@ -156,14 +156,14 @@ makes it testable and what stops two pages disagreeing about what a week is.
 
 49 tests covering the parts where being wrong is expensive:
 
-- **Aggregation** — cancelled orders are excluded from revenue, empty periods
+- **Aggregation**: cancelled orders are excluded from revenue, empty periods
   return zeroes instead of `NaN`, closed days emit a zero bucket rather than
   vanishing, pagination clamps an out-of-range page.
-- **URL filter parsing** — invalid channels, statuses, sort fields and page
+- **URL filter parsing**: invalid channels, statuses, sort fields and page
   numbers are all rejected.
-- **Menu classification** — each quadrant, and the fact that thresholds are
+- **Menu classification**: each quadrant, and the fact that thresholds are
   relative to the menu rather than absolute.
-- **`StatTile`** — a −0,1 % change renders as flat rather than as a downward
+- **`StatTile`**: a -0,1 % change renders as flat rather than as a downward
   arrow, and a zero baseline says so instead of showing `∞`.
 
 ## Accessibility
@@ -172,7 +172,7 @@ Keyboard reachable throughout, with a skip link and a single focus style
 declared once so no component can remove it. The drawer is a native
 `<dialog>`, which brings focus trapping, Esc-to-close and top-layer stacking
 without a library. Tables are real tables with `aria-sort`. Charts carry text
-descriptions and hidden data tables. Colour is never the only signal — the
+descriptions and hidden data tables. Colour is never the only signal: the
 commission portion of a bar is hatched, not just red.
 
 ## Known limitations
@@ -180,7 +180,7 @@ commission portion of a bar is hatched, not just red.
 - The dataset lives in memory. Roughly 43 000 orders across 25 months, built
   in about 300 ms on first load; it is not a scale demonstration.
 - Date ranges are presets rather than an arbitrary date picker.
-- No authentication or multi-tenancy — it is a single venue's dashboard.
+- No authentication or multi-tenancy: it is a single venue's dashboard.
 
 ## Licence
 

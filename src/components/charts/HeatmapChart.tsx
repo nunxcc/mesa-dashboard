@@ -14,8 +14,8 @@ const WEEKDAYS = [0, 1, 2, 3, 4, 5, 6];
 /**
  * Orders by weekday and hour.
  *
- * Built as a real `<table>` rather than an SVG. A heatmap *is* a table — it
- * has row headers, column headers and a value per cell — so the semantic
+ * Built as a real `<table>` rather than an SVG. A heatmap *is* a table - it
+ * has row headers, column headers and a value per cell - so the semantic
  * element gives correct screen-reader navigation for free, and the visual
  * treatment is just a background colour. Reaching for SVG here would mean
  * rebuilding all of that by hand for no gain.
@@ -64,7 +64,7 @@ export function HeatmapChart({ cells, loading = false }: HeatmapChartProps) {
               </th>
               {hours.map((hour) => (
                 <th key={hour} scope="col" className={styles['hourHead']}>
-                  {/* Every other label only — twelve stacked hour labels
+                  {/* Every other label only - twelve stacked hour labels
                       collide well before the grid runs out of room. */}
                   {hour % 2 === 0 ? formatHour(hour) : ''}
                 </th>

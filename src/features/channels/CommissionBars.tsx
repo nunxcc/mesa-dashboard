@@ -13,7 +13,7 @@ export interface CommissionBarsProps {
  * One bar per channel, split into what the restaurant keeps and what the
  * platform takes.
  *
- * All bars share a single scale — the largest gross revenue — so their widths
+ * All bars share a single scale - the largest gross revenue - so their widths
  * are comparable. Normalising each bar to 100 % would show the commission
  * *rate* clearly but hide the thing that matters more: a 30 % cut on the
  * busiest channel costs far more than 30 % on the quietest.

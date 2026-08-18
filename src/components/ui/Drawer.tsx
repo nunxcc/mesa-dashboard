@@ -19,7 +19,7 @@ export interface DrawerProps {
  * implementation.
  *
  * `showModal()` supplies focus trapping, Esc-to-close, `inert` on the rest of
- * the page and top-layer stacking that no z-index can lose a fight with — all
+ * the page and top-layer stacking that no z-index can lose a fight with - all
  * of which are the parts hand-rolled modals reliably get wrong.
  */
 export function Drawer({
@@ -43,7 +43,7 @@ export function Drawer({
     else if (!open && dialog.open) dialog.close();
   }, [open]);
 
-  // The dialog can close without React's knowledge — Esc, or the form method.
+  // The dialog can close without React's knowledge - Esc, or the form method.
   // This keeps the caller's state honest when that happens.
   useEffect(() => {
     const dialog = ref.current;

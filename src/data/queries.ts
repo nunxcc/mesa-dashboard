@@ -13,7 +13,7 @@ import type { OrderFilters, OrderSort, PageRequest, Paginated } from './filters'
  * Query keys in one place.
  *
  * Scattering array literals across components is how cache invalidation
- * quietly stops working — one call site writes `['orders', filters]`, another
+ * quietly stops working - one call site writes `['orders', filters]`, another
  * writes `['order-list', filters]`, and neither ever sees the other's data.
  * A factory makes the key structure a single, greppable source of truth.
  */

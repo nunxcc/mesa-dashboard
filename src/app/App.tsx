@@ -10,7 +10,7 @@ import { Providers } from './providers';
 /**
  * The error boundary lives inside `AppShell`, wrapping the outlet rather than
  * the router. Placing it here would mean keying it on the pathname to recover
- * after a crash, which remounts the entire shell — sidebar, topbar and all —
+ * after a crash, which remounts the entire shell - sidebar, topbar and all -
  * on every navigation.
  */
 export function App() {

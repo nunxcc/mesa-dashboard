@@ -10,7 +10,7 @@ export interface Size {
  *
  * SVG charts need real pixel dimensions to compute scales, and CSS percentages
  * cannot supply them. A ResizeObserver is the only approach that also catches
- * container changes with no window resize behind them — a sidebar collapsing,
+ * container changes with no window resize behind them - a sidebar collapsing,
  * a drawer opening, a font finally loading.
  *
  * The ref is a callback ref so it re-attaches correctly when the observed node

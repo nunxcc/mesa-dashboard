@@ -23,7 +23,7 @@ export interface ChartFrameProps {
   margin?: Partial<Margin>;
   /**
    * Read aloud in place of the graphic. Should state the shape of the data,
-   * not just its title — "Revenue rose from 18k to 24k across June" tells a
+   * not just its title - "Revenue rose from 18k to 24k across June" tells a
    * screen-reader user what a sighted user gets from one glance.
    */
   description: string;
@@ -45,7 +45,7 @@ const DEFAULT_MARGIN: Margin = { top: 12, right: 16, bottom: 28, left: 52 };
 /**
  * Measures its container, then hands real pixel dimensions to the chart.
  *
- * SVG cannot size itself from CSS percentages the way a div can — scales need
+ * SVG cannot size itself from CSS percentages the way a div can - scales need
  * numbers. Everything responsive about these charts starts here, and every
  * chart below shares one set of margin and accessibility conventions as a
  * result.

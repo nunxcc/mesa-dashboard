@@ -23,7 +23,7 @@ function useSimulation() {
  * Controls for the simulated network.
  *
  * Loading skeletons, retry paths and error states are most of the work in a
- * data-heavy UI and the least visible part of it — against a mock API that
+ * data-heavy UI and the least visible part of it - against a mock API that
  * always resolves instantly, none of them ever appear. Exposing the knobs in
  * the running app means those states can be shown rather than described.
  *

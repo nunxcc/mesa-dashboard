@@ -27,7 +27,7 @@ const ANNUAL_GROWTH = 0.12;
 
 /**
  * Service hours. Lunch and dinner are distinct services with a dead afternoon
- * between them — the gap is what makes the peak-hours heatmap legible.
+ * between them - the gap is what makes the peak-hours heatmap legible.
  */
 const IN_HOUSE_HOURLY_WEIGHT: Readonly<Record<number, number>> = {
   12: 55,
@@ -56,7 +56,7 @@ const DELIVERY_HOURLY_WEIGHT: Readonly<Record<number, number>> = {
 
 /**
  * Channel mix at the start and end of the window. Delivery share climbs from
- * 28 % to 40 % over the year — the single most consequential trend in the
+ * 28 % to 40 % over the year - the single most consequential trend in the
  * dataset, because every point of it arrives with a ~28 % commission attached.
  */
 const CHANNEL_MIX_START: Readonly<Record<Channel, number>> = {
@@ -189,7 +189,7 @@ const monthCharacterCache = new Map<string, number>();
  * The smooth season factor alone makes every month-over-month comparison land
  * within a percent or two of flat, which is not how a restaurant trades: a
  * fortnight of rain, roadworks on the street, a festival in the square. This
- * gives each month its own luck — stable for that month forever, because it is
+ * gives each month its own luck - stable for that month forever, because it is
  * seeded from the month key rather than drawn per run.
  */
 function monthCharacter(date: Date): number {
@@ -234,7 +234,7 @@ const SEED_BY_ID = new Map(MENU_SEEDS.map((item) => [item.id, item]));
 /**
  * Candidate lists and their weight tables, precomputed per
  * (category, delivery?) pair. Building these inside the order loop meant
- * scanning and re-allocating the whole menu several times per order — about
+ * scanning and re-allocating the whole menu several times per order - about
  * 200 000 wasted passes across a full year of data.
  */
 const CANDIDATES = new Map<string, { value: MenuSeed; weight: number }[]>();
@@ -338,7 +338,7 @@ function buildBasket(rng: Rng, channel: Channel): Basket {
 
 /**
  * Ticket time. Driven by the slowest station in the basket rather than the sum
- * — a kitchen fires in parallel — then inflated by how busy that hour is and
+ * - a kitchen fires in parallel - then inflated by how busy that hour is and
  * by the packing step delivery orders need.
  */
 function prepMinutesFor(rng: Rng, lines: OrderLine[], channel: Channel, hourLoad: number): number {
@@ -355,7 +355,7 @@ function prepMinutesFor(rng: Rng, lines: OrderLine[], channel: Channel, hourLoad
 
   // Superlinear in load: a pass at 90 % capacity is far more than 1.5x as slow
   // as one at 60 %, because tickets start queueing behind each other. This is
-  // what gives ticket times their long right tail — a normal distribution
+  // what gives ticket times their long right tail - a normal distribution
   // around a mean would put p95 only a few minutes above p50, which is not
   // how any kitchen has ever behaved.
   const loadPenalty = slowest * Math.pow(hourLoad, 1.9) * 0.9;
@@ -364,7 +364,7 @@ function prepMinutesFor(rng: Rng, lines: OrderLine[], channel: Channel, hourLoad
   const noise = rng.normal(0, 4.2);
 
   // Roughly one ticket in thirty goes wrong: a station backs up, an order is
-  // dropped, a table's mains get re-fired. These outliers matter — they are
+  // dropped, a table's mains get re-fired. These outliers matter - they are
   // most of what a prep-time p95 is actually measuring.
   const mishap = rng.bool(0.033) ? Math.abs(rng.normal(15, 9)) : 0;
 

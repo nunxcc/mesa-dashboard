@@ -54,7 +54,7 @@ export function resolvePreset(preset: RangePreset, now = new Date()): DateRange 
 /**
  * The immediately preceding window of equal length, used for every
  * period-over-period delta. Comparing a 30-day span against the 30 days before
- * it is the only comparison that does not mislead — matching against "same
+ * it is the only comparison that does not mislead - matching against "same
  * period last year" would fold a year of growth into every number.
  */
 export function precedingRange(range: DateRange): DateRange {

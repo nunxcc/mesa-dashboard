@@ -19,7 +19,7 @@ export interface OrderOverrides {
 
 /**
  * Builds an order with sane defaults, so a test only has to state the field it
- * is actually about. Commission and net are derived rather than passed in —
+ * is actually about. Commission and net are derived rather than passed in -
  * a fixture that lets those drift out of step with the channel would let a
  * broken aggregation still pass.
  */

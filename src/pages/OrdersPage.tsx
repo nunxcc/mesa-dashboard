@@ -127,7 +127,7 @@ export function OrdersPage() {
     clearFilters,
   } = useDashboardFilters();
 
-  // The input stays instant while the URL — and therefore the query — trails
+  // The input stays instant while the URL - and therefore the query - trails
   // it. Writing every keystroke straight to the URL would push a history
   // entry and fire a request per character.
   const [searchInput, setSearchInput] = useState(filters.search);

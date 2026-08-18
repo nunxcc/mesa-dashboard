@@ -44,7 +44,7 @@
   border-radius: var(--radius-sm);
   overflow: hidden;
   min-width: 2px;
-  /* Bars are the reason to look at this card, so let them animate in — but
+  /* Bars are the reason to look at this card, so let them animate in - but
      only the width, and only once the data has actually changed. */
   transition: width var(--duration-slow) var(--ease-out);
 }

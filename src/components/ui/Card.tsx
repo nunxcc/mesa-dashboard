@@ -20,7 +20,7 @@ export interface CardHeaderProps {
   title: ReactNode;
   /** Sits under the title. Use it for the definition, not for decoration. */
   description?: ReactNode;
-  /** Buttons, selects, legends — anything aligned to the right of the title. */
+  /** Buttons, selects, legends - anything aligned to the right of the title. */
   actions?: ReactNode;
   /**
    * Heading level. The overview page is a single h1 with h2 cards; a card

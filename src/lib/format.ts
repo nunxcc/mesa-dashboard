@@ -145,7 +145,7 @@ export function formatTime(iso: string): string {
   return dateFormatter(LOCALE, { hour: '2-digit', minute: '2-digit' }).format(new Date(iso));
 }
 
-/** "14h" — compact enough for a heatmap axis. */
+/** "14h" - compact enough for a heatmap axis. */
 export function formatHour(hour: number): string {
   return `${hour.toString().padStart(2, '0')}h`;
 }

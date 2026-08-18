@@ -4,7 +4,7 @@ import { createContext, use } from 'react';
  * Theme context and its hook, kept apart from the provider component.
  *
  * A module that exports both components and plain values breaks React Fast
- * Refresh — it can no longer tell whether to remount or re-run, so it reloads
+ * Refresh - it can no longer tell whether to remount or re-run, so it reloads
  * the whole page and loses state on every edit. Splitting them is the fix.
  */
 export type ThemePreference = 'light' | 'dark' | 'system';

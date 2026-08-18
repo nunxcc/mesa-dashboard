@@ -57,8 +57,8 @@
 .body {
   flex: 1;
   overflow-y: auto;
-  /* Overridable, so a drawer holding its own full-bleed content — the mobile
-     nav, for instance — can opt out of the default inset. */
+  /* Overridable, so a drawer holding its own full-bleed content - the mobile
+     nav, for instance - can opt out of the default inset. */
   padding: var(--drawer-padding, var(--space-5));
 }
 

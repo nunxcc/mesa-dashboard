@@ -6,7 +6,7 @@ export type BadgeTone = 'neutral' | 'positive' | 'negative' | 'warning' | 'info'
 
 export interface BadgeProps {
   tone?: BadgeTone;
-  /** Adds a filled dot before the label — for statuses rather than counts. */
+  /** Adds a filled dot before the label - for statuses rather than counts. */
   dot?: boolean;
   children: ReactNode;
   className?: string;
