@@ -1,0 +1,84 @@
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+  min-width: 0;
+}
+
+/* Marks the one tile on the page that is the actual headline. */
+.emphasis {
+  border-color: var(--color-accent);
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent-soft),
+    var(--color-surface) 60%
+  );
+}
+
+.label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.value {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  /* Values are read down a row of tiles, so digits must not shift width. */
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+.valueSkeleton {
+  margin-block: 0.2rem;
+}
+
+.delta,
+.footnote {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  min-height: 1.1rem;
+}
+
+.delta {
+  font-weight: var(--weight-medium);
+}
+
+/* Occupies the same width as the icon it replaces, so a row of tiles with
+   mixed flat and directional deltas still aligns. */
+.flatMark {
+  display: inline-block;
+  width: 13px;
+  text-align: center;
+  font-weight: var(--weight-semibold);
+}
+
+.good {
+  color: var(--color-positive);
+}
+
+.bad {
+  color: var(--color-negative);
+}
+
+.deltaLabel {
+  color: var(--color-text-muted);
+  font-weight: var(--weight-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

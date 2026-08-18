@@ -1,0 +1,121 @@
+.drawer {
+  /* The dialog element is the full-viewport hit area; the panel inside it is
+     what the reader sees. This is what makes backdrop clicks detectable. */
+  width: 100vw;
+  max-width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+}
+
+.drawer::backdrop {
+  background-color: var(--overlay-scrim);
+  backdrop-filter: blur(2px);
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(29rem, 100vw);
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-lg);
+}
+
+.right .panel {
+  right: 0;
+  border-left: 1px solid var(--color-border);
+}
+
+.left .panel {
+  left: 0;
+  width: min(17rem, 85vw);
+  border-right: 1px solid var(--color-border);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  /* Overridable, so a drawer holding its own full-bleed content — the mobile
+     nav, for instance — can opt out of the default inset. */
+  padding: var(--drawer-padding, var(--space-5));
+}
+
+.footer {
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+/* Animate in on open. `allow-discrete` lets `display` participate in the
+   transition, so the panel can slide out before it is removed rather than
+   snapping away. */
+@media (prefers-reduced-motion: no-preference) {
+  .drawer,
+  .drawer::backdrop {
+    transition:
+      opacity var(--duration-base) var(--ease-out),
+      display var(--duration-base) allow-discrete,
+      overlay var(--duration-base) allow-discrete;
+    opacity: 0;
+  }
+
+  .drawer[open],
+  .drawer[open]::backdrop {
+    opacity: 1;
+  }
+
+  @starting-style {
+    .drawer[open],
+    .drawer[open]::backdrop {
+      opacity: 0;
+    }
+  }
+
+  .panel {
+    transition: translate var(--duration-base) var(--ease-out);
+  }
+
+  .right .panel {
+    translate: 100% 0;
+  }
+
+  .left .panel {
+    translate: -100% 0;
+  }
+
+  .drawer[open] .panel {
+    translate: 0 0;
+  }
+
+  @starting-style {
+    .right[open] .panel {
+      translate: 100% 0;
+    }
+
+    .left[open] .panel {
+      translate: -100% 0;
+    }
+  }
+}

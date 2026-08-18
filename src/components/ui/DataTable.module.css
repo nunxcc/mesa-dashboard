@@ -1,0 +1,93 @@
+.scroll {
+  overflow-x: auto;
+  /* Contains the sticky header's stacking context so it cannot slide over the
+     app topbar while the table scrolls. */
+  position: relative;
+}
+
+.table {
+  width: 100%;
+  min-width: 38rem;
+  font-size: var(--text-sm);
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table tbody td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.right {
+  text-align: right;
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.clickable:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.clickable[data-active] {
+  background-color: var(--color-accent-soft);
+}
+
+/* ---- sorting -------------------------------------------------------- */
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: inherit;
+  font: inherit;
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.sortButton:hover {
+  color: var(--color-text);
+}
+
+/* The arrow stays reserved but invisible until the column is sorted or
+   hovered, so headers do not shift as the sort moves between them. */
+.sortIcon {
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.sortButton:hover .sortIcon {
+  opacity: 0.5;
+}
+
+.sortIconActive,
+.sortButton:hover .sortIconActive {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+@media (max-width: 47.99rem) {
+  .secondary {
+    display: none;
+  }
+}
