@@ -1,0 +1,245 @@
+/*
+ * Design tokens — two tiers.
+ *
+ * Tier 1 (primitives) are raw values. Components must never reference them
+ * directly; they only exist so the semantic tier has something to point at.
+ * Tier 2 (semantic) describes intent — "the colour of a muted label" rather
+ * than "warm grey 500". Retheming means remapping tier 2, never touching a
+ * component.
+ *
+ * The palette is deliberately warm: this is a hospitality product, and the
+ * default cool-grey-and-blue dashboard look reads as generic here.
+ */
+
+:root {
+  /* ---------------------------------------------------------------- *
+   * Tier 1 — primitives
+   * ---------------------------------------------------------------- */
+
+  /* Warm neutrals. Hue held at ~30deg so greys feel like paper, not steel. */
+  --sand-50: #faf8f5;
+  --sand-100: #f4f0ea;
+  --sand-200: #e9e2d8;
+  --sand-300: #d9cfc2;
+  --sand-400: #b4a696;
+  --sand-500: #8d8073;
+  --sand-600: #6b6156;
+  --sand-700: #4e463e;
+  --sand-800: #332e29;
+  --sand-900: #1f1b18;
+  --sand-950: #141110;
+
+  /* Clay — the brand accent. Terracotta reads as food/hospitality and, more
+     practically, is not the violet-blue every other dashboard ships with. */
+  --clay-50: #fdf5f1;
+  --clay-100: #fae7de;
+  --clay-200: #f3cdbc;
+  --clay-300: #e8a98f;
+  --clay-400: #d97f5c;
+  --clay-500: #c65f38;
+  --clay-600: #b4531f;
+  --clay-700: #96421a;
+  --clay-800: #79371a;
+  --clay-900: #632f19;
+
+  /* Categorical series. Five channels, spaced around the wheel but pulled
+     warm so they sit together. Each is legible as a fill on both themes. */
+  --series-1: #b4531f; /* terracotta */
+  --series-2: #d99a2b; /* amber     */
+  --series-3: #4f7a4a; /* olive     */
+  --series-4: #3e6b8a; /* slate     */
+  --series-5: #8c4a6b; /* plum      */
+
+  --series-1-soft: #f3cdbc;
+  --series-2-soft: #f6e3bd;
+  --series-3-soft: #cadfc6;
+  --series-4-soft: #c6d8e4;
+  --series-5-soft: #e6cad7;
+
+  /* Status */
+  --green-500: #3f7a5c;
+  --green-100: #d9ece1;
+  --red-500: #b3402f;
+  --red-100: #f7ddd8;
+  --amber-500: #c98a1e;
+  --amber-100: #f8ebcd;
+  --blue-500: #3e6b8a;
+  --blue-100: #d8e6ef;
+
+  /* ---------------------------------------------------------------- *
+   * Tier 1 — dimensions (theme-independent)
+   * ---------------------------------------------------------------- */
+
+  /* 4px base. Named by step, not by pixel value, so the scale can shift. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Type scale, ~1.2 ratio off a 14px base. Dashboards read better at 14 than
+     at 16 — there is simply more to fit on screen. */
+  --text-2xs: 0.6875rem; /* 11px */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.8125rem; /* 13px */
+  --text-base: 0.875rem; /* 14px */
+  --text-md: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.375rem; /* 22px */
+  --text-2xl: 1.75rem; /* 28px */
+  --text-3xl: 2.25rem; /* 36px */
+  --text-4xl: 3rem; /* 48px */
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.55;
+
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --font-sans:
+    'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces Variable', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', 'Roboto Mono', monospace;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 999px;
+
+  /* Motion. Short and eased-out; dashboards should feel instant, and long
+     transitions on data views read as lag rather than polish. */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+
+  --z-sticky: 100;
+  --z-drawer: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+
+  --sidebar-width: 15rem;
+  --topbar-height: 3.75rem;
+  --content-max: 90rem;
+
+  /* ---------------------------------------------------------------- *
+   * Tier 2 — semantic (light theme is the default)
+   * ---------------------------------------------------------------- */
+
+  --color-bg: var(--sand-50);
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-surface-sunken: var(--sand-100);
+  --color-surface-hover: var(--sand-100);
+  --color-surface-active: var(--sand-200);
+
+  --color-border: var(--sand-200);
+  --color-border-strong: var(--sand-300);
+  --color-border-subtle: var(--sand-100);
+
+  --color-text: var(--sand-900);
+  --color-text-secondary: var(--sand-600);
+  --color-text-muted: var(--sand-500);
+  --color-text-inverse: var(--sand-50);
+
+  --color-accent: var(--clay-600);
+  --color-accent-hover: var(--clay-700);
+  --color-accent-soft: var(--clay-100);
+  --color-accent-text: #ffffff;
+
+  --color-positive: var(--green-500);
+  --color-positive-soft: var(--green-100);
+  --color-negative: var(--red-500);
+  --color-negative-soft: var(--red-100);
+  --color-warning: var(--amber-500);
+  --color-warning-soft: var(--amber-100);
+  --color-info: var(--blue-500);
+  --color-info-soft: var(--blue-100);
+
+  --color-focus: var(--clay-500);
+
+  /* Grid lines want to be nearly invisible — present enough to guide the eye
+     along a value, quiet enough that the data stays the loudest thing. */
+  --color-chart-grid: var(--sand-200);
+  --color-chart-axis: var(--sand-400);
+
+  /* Warm-tinted shadows. Pure-black shadows on a warm background look dirty. */
+  --shadow-xs: 0 1px 2px rgb(52 40 30 / 0.05);
+  --shadow-sm: 0 1px 3px rgb(52 40 30 / 0.07), 0 1px 2px rgb(52 40 30 / 0.04);
+  --shadow-md: 0 4px 12px rgb(52 40 30 / 0.08), 0 1px 3px rgb(52 40 30 / 0.05);
+  --shadow-lg: 0 12px 32px rgb(52 40 30 / 0.12), 0 2px 8px rgb(52 40 30 / 0.06);
+
+  --overlay-scrim: rgb(31 27 24 / 0.4);
+}
+
+/*
+ * Dark theme. Not an inversion — the neutrals stay warm, the accent is lifted
+ * two steps (a mid terracotta goes muddy on near-black) and the categorical
+ * series are re-picked rather than reused, because saturated mid-tones lose
+ * separation against a dark ground.
+ */
+:root[data-theme='dark'] {
+  --color-bg: var(--sand-950);
+  --color-surface: var(--sand-900);
+  --color-surface-raised: #262220;
+  --color-surface-sunken: #100e0d;
+  --color-surface-hover: #2a2522;
+  --color-surface-active: #332e29;
+
+  --color-border: #332e29;
+  --color-border-strong: #453e37;
+  --color-border-subtle: #262220;
+
+  --color-text: var(--sand-100);
+  --color-text-secondary: var(--sand-400);
+  --color-text-muted: var(--sand-500);
+  --color-text-inverse: var(--sand-950);
+
+  --color-accent: var(--clay-400);
+  --color-accent-hover: var(--clay-300);
+  --color-accent-soft: #3a231a;
+  --color-accent-text: var(--sand-950);
+
+  --series-1: #e08b64;
+  --series-2: #e8b856;
+  --series-3: #7aa872;
+  --series-4: #6f9cbc;
+  --series-5: #b87c9a;
+
+  --series-1-soft: #4a2c1e;
+  --series-2-soft: #4a3a1a;
+  --series-3-soft: #27381f;
+  --series-4-soft: #1f3241;
+  --series-5-soft: #3d2431;
+
+  --color-positive: #6aa886;
+  --color-positive-soft: #1e3329;
+  --color-negative: #d9705f;
+  --color-negative-soft: #3d211c;
+  --color-warning: #dfae4e;
+  --color-warning-soft: #3b2f13;
+  --color-info: #6f9cbc;
+  --color-info-soft: #1f3241;
+
+  --color-focus: var(--clay-400);
+
+  --color-chart-grid: #2e2926;
+  --color-chart-axis: var(--sand-600);
+
+  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.4), 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.45), 0 1px 3px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 12px 32px rgb(0 0 0 / 0.55), 0 2px 8px rgb(0 0 0 / 0.35);
+
+  --overlay-scrim: rgb(0 0 0 / 0.6);
+}
