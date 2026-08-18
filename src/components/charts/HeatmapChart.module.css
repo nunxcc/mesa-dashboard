@@ -1,0 +1,126 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+/* The grid has a floor width below which the cells stop being readable, so on
+   a phone it scrolls sideways rather than compressing into slivers. */
+.scroll {
+  overflow-x: auto;
+  margin-inline: calc(var(--space-1) * -1);
+  padding-inline: var(--space-1);
+}
+
+.table {
+  width: 100%;
+  min-width: 26rem;
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+.hourHead {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-normal);
+  color: var(--color-text-muted);
+  text-align: center;
+  padding-bottom: var(--space-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.dayHead {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  text-align: right;
+  padding-right: var(--space-2);
+  white-space: nowrap;
+  width: 1%;
+}
+
+.dayHead[data-closed] {
+  color: var(--color-text-muted);
+  font-weight: var(--weight-normal);
+}
+
+.cellWrap {
+  padding: 0;
+}
+
+.cell {
+  height: 1.5rem;
+  min-width: 1.25rem;
+  border-radius: 3px;
+  background-color: var(--color-surface-sunken);
+  transition:
+    outline-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+}
+
+.cell[data-active] {
+  outline-color: var(--color-text);
+}
+
+/* Closed days read as struck through rather than merely empty, so nobody
+   mistakes a shut kitchen for missing data. */
+.cell[data-closed] {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 3px,
+    var(--color-border) 3px,
+    var(--color-border) 4px
+  );
+  background-color: transparent;
+}
+
+/* ---- footer --------------------------------------------------------- */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.readout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+  /* Reserve the line so the layout does not jump as the readout appears. */
+  min-height: 1.25rem;
+}
+
+.readout strong {
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+}
+
+.hint {
+  color: var(--color-text-muted);
+}
+
+.scale {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.scaleLabel {
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+  margin-inline: var(--space-1);
+}
+
+.scaleSwatch {
+  width: 1.125rem;
+  height: 0.5rem;
+  border-radius: 2px;
+}

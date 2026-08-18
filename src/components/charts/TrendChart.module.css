@@ -1,0 +1,47 @@
+.grossLine {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Net sits inside the gross area, so it needs to read as a subordinate
+   reference line rather than a second headline series. */
+.netLine {
+  fill: none;
+  stroke: var(--color-text-secondary);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
+  stroke-linecap: round;
+  opacity: 0.75;
+}
+
+.guide {
+  stroke: var(--color-border-strong);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.dotGross {
+  fill: var(--color-accent);
+  stroke: var(--color-surface);
+  stroke-width: 2;
+}
+
+.dotNet {
+  fill: var(--color-text-secondary);
+  stroke: var(--color-surface);
+  stroke-width: 2;
+}
+
+.marker {
+  pointer-events: none;
+}
+
+/* foreignObject would otherwise capture pointer events across the whole
+   chart and immediately cancel the hover that produced it. */
+.overlay {
+  pointer-events: none;
+  overflow: visible;
+}
