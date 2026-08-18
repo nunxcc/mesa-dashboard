@@ -10,6 +10,17 @@ charting library, no backend.
 
 **[Live demo](https://mesa-dashboard-lovat.vercel.app/)**
 
+![Overview: KPI tiles against the preceding period, a gross-versus-net revenue
+trend, the channel split and a weekday-by-hour heatmap of when the kitchen is
+busy](docs/screenshots/overview.png)
+
+![Channels: horizontal bars showing what each sales channel grosses and how
+much of it the delivery platform takes as commission](docs/screenshots/channels.png)
+
+![Menu engineering matrix: units sold plotted against margin per plate, split
+at the median of each axis into Stars, Plowhorses, Puzzles and
+Dogs](docs/screenshots/menu-matrix.png)
+
 ---
 
 ## Why a restaurant
