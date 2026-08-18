@@ -45,10 +45,15 @@
 
 .legendItem {
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  /* minmax(0, 1fr) rather than 1fr for the label track: a grid item defaults
+     to min-width: auto, so a plain 1fr refuses to shrink below its text and
+     the whole legend pushes the card - and the page - wider than the viewport.
+     The ellipsis below only works once the track is allowed to shrink. */
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
   align-items: center;
   gap: var(--space-3);
   width: 100%;
+  min-width: 0;
   padding: var(--space-2);
   border-radius: var(--radius-sm);
   text-align: left;
@@ -76,6 +81,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .legendValue {
@@ -92,8 +98,13 @@
   text-align: right;
 }
 
-@media (min-width: 30rem) {
+/* Queries the card, not the window. Below this the donut and its legend stack,
+   which is the only thing that fits once the card is narrow.
+   The threshold is 24rem rather than something rounder because --content-max
+   caps a third-width card body at roughly 27rem: set any higher and the
+   side-by-side layout could never trigger on any screen. */
+@container (min-width: 24rem) {
   .layout {
-    grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
   }
 }

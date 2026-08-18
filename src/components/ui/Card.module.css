@@ -46,6 +46,13 @@
   padding: var(--space-5);
   flex: 1;
   min-width: 0;
+
+  /* Makes the card body a query container, so its contents can lay themselves
+     out against the width they actually have rather than the width of the
+     window. A three-column card grid at 1280px gives each card ~317px, and a
+     chart deciding to go side-by-side because "the viewport is wide" then
+     overflows it. */
+  container-type: inline-size;
 }
 
 /* A header already supplies the top inset, so the body must not double it. */
