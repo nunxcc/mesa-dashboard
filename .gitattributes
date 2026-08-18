@@ -1,0 +1,8 @@
+# Normalise line endings so the repo is identical whether it was committed
+# from Windows, macOS or CI. Without this, a Windows checkout rewrites every
+# file to CRLF and the next contributor sees the whole tree as modified.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.woff2 binary
