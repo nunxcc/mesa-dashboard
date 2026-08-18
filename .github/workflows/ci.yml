@@ -1,0 +1,47 @@
+name: CI
+
+# Runs on every push to main and on every pull request. The pull_request
+# trigger is what makes a branch reviewable before it is merged, rather than
+# finding out it was broken after the fact.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    name: Typecheck, lint and test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Pinned to the major version the project is developed against, so
+          # CI cannot pass on a Node that nobody actually runs it on.
+          node-version: '24'
+          cache: npm
+
+      # `npm ci` rather than `npm install`: it installs exactly what the
+      # lockfile pins and fails if package.json and the lockfile disagree.
+      # `install` would happily resolve a newer version and hide the drift.
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Test
+        run: npm test
+
+      # Last, because a green typecheck does not prove the bundle builds -
+      # CSS Modules, asset imports and the font pipeline only run here.
+      - name: Build
+        run: npm run build

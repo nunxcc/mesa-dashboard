@@ -37,7 +37,8 @@ export function StatTile({
 
   // A change of a few tenths of a percent is noise, not a trend, and colouring
   // it green or red invites people to read meaning into rounding.
-  const direction = change === null || Math.abs(change) < 0.005 ? 'flat' : change > 0 ? 'up' : 'down';
+  const direction =
+    change === null || Math.abs(change) < 0.005 ? 'flat' : change > 0 ? 'up' : 'down';
   const good = direction === 'flat' ? null : (direction === 'up') !== invertDelta;
 
   return (

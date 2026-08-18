@@ -368,11 +368,7 @@ function prepMinutesFor(rng: Rng, lines: OrderLine[], channel: Channel, hourLoad
   // most of what a prep-time p95 is actually measuring.
   const mishap = rng.bool(0.033) ? Math.abs(rng.normal(15, 9)) : 0;
 
-  return clamp(
-    Math.round(slowest + queueing + loadPenalty + packing + noise + mishap),
-    4,
-    75,
-  );
+  return clamp(Math.round(slowest + queueing + loadPenalty + packing + noise + mishap), 4, 75);
 }
 
 /**
@@ -452,12 +448,15 @@ function generateDayOrders(date: Date, progress: number): Order[] {
     // Marketplaces run aggressive promos; the dining room almost never
     // discounts, and when it does it is a staff meal or a comped dish.
     const discount = rng.bool(DELIVERY_PROFILE[channel].discountRate)
-      ? Math.round(subtotal * rng.weighted([
-          { value: 0.1, weight: 40 },
-          { value: 0.15, weight: 30 },
-          { value: 0.2, weight: 20 },
-          { value: 0.3, weight: 10 },
-        ]))
+      ? Math.round(
+          subtotal *
+            rng.weighted([
+              { value: 0.1, weight: 40 },
+              { value: 0.15, weight: 30 },
+              { value: 0.2, weight: 20 },
+              { value: 0.3, weight: 10 },
+            ]),
+        )
       : 0;
 
     const commissionable = subtotal - discount;

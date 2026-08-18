@@ -10,6 +10,8 @@ charting library, no backend.
 
 **[Live demo](https://mesa-dashboard-lovat.vercel.app/)**
 
+[![CI](https://github.com/nunxcc/mesa-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/nunxcc/mesa-dashboard/actions/workflows/ci.yml)
+
 ![Overview: KPI tiles against the preceding period, a gross-versus-net revenue
 trend, the channel split and a weekday-by-hour heatmap of when the kitchen is
 busy](docs/screenshots/overview.png)

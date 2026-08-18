@@ -101,9 +101,7 @@ export type Granularity = 'hour' | 'day' | 'week' | 'month';
 export function granularityFor(range: DateRange): Granularity {
   const days = Math.max(
     1,
-    Math.round(
-      (new Date(range.to).getTime() - new Date(range.from).getTime()) / 86_400_000,
-    ),
+    Math.round((new Date(range.to).getTime() - new Date(range.from).getTime()) / 86_400_000),
   );
   if (days <= 2) return 'hour';
   if (days <= 92) return 'day';

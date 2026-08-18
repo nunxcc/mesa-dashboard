@@ -18,12 +18,7 @@ import { OrderDetail } from '@/features/orders/OrderDetail';
 import { useOrder, useOrders } from '@/data/queries';
 import { useDebouncedValue } from '@/lib/hooks/useDebouncedValue';
 import { formatCurrency, formatDateTime, formatMinutes, formatNumber } from '@/lib/format';
-import {
-  CHANNEL_META,
-  ORDER_STATUS_LABEL,
-  type Order,
-  type OrderStatus,
-} from '@/types/domain';
+import { CHANNEL_META, ORDER_STATUS_LABEL, type Order, type OrderStatus } from '@/types/domain';
 import styles from './OrdersPage.module.css';
 
 const STATUS_TONE: Record<OrderStatus, 'positive' | 'warning' | 'negative'> = {

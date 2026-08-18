@@ -62,9 +62,7 @@ const COLUMNS: Column<ChannelBreakdown>[] = [
     id: 'net',
     header: 'Net',
     align: 'right',
-    cell: (row) => (
-      <strong>{formatCurrency(row.netRevenue, { decimals: 0 })}</strong>
-    ),
+    cell: (row) => <strong>{formatCurrency(row.netRevenue, { decimals: 0 })}</strong>,
   },
   {
     id: 'prep',

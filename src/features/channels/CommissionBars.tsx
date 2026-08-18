@@ -92,11 +92,17 @@ export function CommissionBars({ breakdown, loading = false }: CommissionBarsPro
 
       <div className={styles['legend']}>
         <span className={styles['legendItem']}>
-          <span className={`${styles['legendSwatch']} ${styles['legendKept']}`} aria-hidden="true" />
+          <span
+            className={`${styles['legendSwatch']} ${styles['legendKept']}`}
+            aria-hidden="true"
+          />
           Kept by the restaurant
         </span>
         <span className={styles['legendItem']}>
-          <span className={`${styles['legendSwatch']} ${styles['legendLost']}`} aria-hidden="true" />
+          <span
+            className={`${styles['legendSwatch']} ${styles['legendLost']}`}
+            aria-hidden="true"
+          />
           Taken as commission
         </span>
       </div>

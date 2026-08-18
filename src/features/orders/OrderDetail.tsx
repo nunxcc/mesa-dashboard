@@ -3,12 +3,7 @@ import { Skeleton, SkeletonText } from '@/components/ui/Skeleton';
 import { ErrorState } from '@/components/ui/States';
 import { MENU_BY_ID } from '@/data/generator/menu';
 import { formatCurrency, formatDateTime, formatMinutes, formatNumber } from '@/lib/format';
-import {
-  CHANNEL_META,
-  ORDER_STATUS_LABEL,
-  type Order,
-  type OrderStatus,
-} from '@/types/domain';
+import { CHANNEL_META, ORDER_STATUS_LABEL, type Order, type OrderStatus } from '@/types/domain';
 import styles from './OrderDetail.module.css';
 
 const STATUS_TONE: Record<OrderStatus, 'positive' | 'warning' | 'negative'> = {
@@ -110,7 +105,9 @@ export function OrderDetail({ order, loading, error, onRetry }: OrderDetailProps
                     <span className={styles['lineName']}>{item?.name ?? line.itemId}</span>
                     {/* Unit price is captured at order time, so a historical
                         ticket still reconciles after a menu price change. */}
-                    <span className={styles['lineUnit']}>{formatCurrency(line.unitPrice)} each</span>
+                    <span className={styles['lineUnit']}>
+                      {formatCurrency(line.unitPrice)} each
+                    </span>
                   </td>
                   <td className={styles['right']}>{line.quantity}</td>
                   <td className={styles['right']}>

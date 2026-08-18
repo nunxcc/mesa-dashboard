@@ -13,7 +13,12 @@ export type Quadrant = 'star' | 'plowhorse' | 'puzzle' | 'dog';
 
 export const QUADRANT_META: Record<
   Quadrant,
-  { label: string; advice: string; colorVar: string; tone: 'positive' | 'info' | 'warning' | 'negative' }
+  {
+    label: string;
+    advice: string;
+    colorVar: string;
+    tone: 'positive' | 'info' | 'warning' | 'negative';
+  }
 > = {
   star: {
     label: 'Star',

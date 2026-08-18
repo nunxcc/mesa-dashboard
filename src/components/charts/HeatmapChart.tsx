@@ -42,9 +42,7 @@ export function HeatmapChart({ cells, loading = false }: HeatmapChartProps) {
       max,
       // A day with no orders all week is a closing day, not a quiet one, and
       // deserves to be labelled rather than rendered as an unexplained blank.
-      closedDays: new Set(
-        WEEKDAYS.filter((weekday) => (dayTotals.get(weekday) ?? 0) === 0),
-      ),
+      closedDays: new Set(WEEKDAYS.filter((weekday) => (dayTotals.get(weekday) ?? 0) === 0)),
     };
   }, [cells]);
 

@@ -51,8 +51,8 @@ export function DemoControls() {
       <div id={popoverId} popover="auto" className={styles['popover']}>
         <p className={styles['heading']}>Simulated network</p>
         <p className={styles['note']}>
-          This dashboard runs against a generated dataset. These control how the
-          fake API behaves, so the loading and error states are visible.
+          This dashboard runs against a generated dataset. These control how the fake API behaves,
+          so the loading and error states are visible.
         </p>
 
         <fieldset className={styles['field']}>

@@ -99,7 +99,9 @@ const PATHS = {
       <path d="M12 7v5.5l3.5 2" />
     </>
   ),
-  star: <path d="m12 3 2.7 5.8 6.3.8-4.6 4.4 1.2 6.3L12 17.3 6.4 20.3l1.2-6.3L3 9.6l6.3-.8L12 3Z" />,
+  star: (
+    <path d="m12 3 2.7 5.8 6.3.8-4.6 4.4 1.2 6.3L12 17.3 6.4 20.3l1.2-6.3L3 9.6l6.3-.8L12 3Z" />
+  ),
   trending: (
     <>
       <path d="m3 16.5 5.5-5.5 3.5 3.5L21 5.5" />
@@ -144,7 +146,10 @@ export function Icon({ name, size = 16, ...props }: IconProps) {
  * The wordmark. A plate viewed from above with a fork to its left - legible at
  * 20px in the sidebar, which is the only size that matters here.
  */
-export function Logo({ size = 24, ...props }: Omit<SVGProps<SVGSVGElement>, 'name'> & { size?: number }) {
+export function Logo({
+  size = 24,
+  ...props
+}: Omit<SVGProps<SVGSVGElement>, 'name'> & { size?: number }) {
   return (
     <svg
       width={size}

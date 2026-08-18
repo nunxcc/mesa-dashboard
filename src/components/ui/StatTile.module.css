@@ -13,11 +13,7 @@
 /* Marks the one tile on the page that is the actual headline. */
 .emphasis {
   border-color: var(--color-accent);
-  background: linear-gradient(
-    to bottom,
-    var(--color-accent-soft),
-    var(--color-surface) 60%
-  );
+  background: linear-gradient(to bottom, var(--color-accent-soft), var(--color-surface) 60%);
 }
 
 .label {

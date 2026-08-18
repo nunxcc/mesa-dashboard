@@ -51,10 +51,7 @@ async function request<T>(signal: AbortSignal | undefined, produce: () => T): Pr
   return produce();
 }
 
-export function getMetrics(
-  filters: OrderFilters,
-  signal?: AbortSignal,
-): Promise<MetricComparison> {
+export function getMetrics(filters: OrderFilters, signal?: AbortSignal): Promise<MetricComparison> {
   return request(signal, () => {
     const dataset = getDataset();
     const current = summarise(filterOrders(dataset, filters));

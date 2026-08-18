@@ -37,13 +37,7 @@ const PARAM = {
 const VALID_PRESETS = new Set<string>(RANGE_PRESETS.map((preset) => preset.id));
 const VALID_CHANNELS = new Set<string>(CHANNELS);
 const VALID_STATUSES = new Set<string>(ORDER_STATUSES);
-const VALID_SORT_FIELDS = new Set<string>([
-  'placedAt',
-  'net',
-  'subtotal',
-  'prepMinutes',
-  'rating',
-]);
+const VALID_SORT_FIELDS = new Set<string>(['placedAt', 'net', 'subtotal', 'prepMinutes', 'rating']);
 
 export const PAGE_SIZE = 25;
 
@@ -96,7 +90,8 @@ export function useDashboardFilters(): DashboardFilters {
       sortField && VALID_SORT_FIELDS.has(sortField)
         ? (sortField as OrderSortField)
         : DEFAULT_SORT.field,
-    direction: sortDirection === 'asc' || sortDirection === 'desc' ? sortDirection : DEFAULT_SORT.direction,
+    direction:
+      sortDirection === 'asc' || sortDirection === 'desc' ? sortDirection : DEFAULT_SORT.direction,
   };
 
   const pageParam = Number(params.get(PARAM.page));
