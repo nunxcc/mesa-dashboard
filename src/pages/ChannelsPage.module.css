@@ -1,0 +1,58 @@
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.insight {
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-6);
+  border: 1px solid var(--color-accent);
+  border-left-width: 3px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-accent-soft);
+}
+
+.insightTitle {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.insightBody {
+  margin-top: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  max-width: 70ch;
+  text-wrap: pretty;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.channelCell {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+}
+
+.swatch {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.negative {
+  color: var(--color-negative);
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
