@@ -1,0 +1,147 @@
+.sidebar,
+.drawer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  padding: var(--space-4) var(--space-3);
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+}
+
+.drawer {
+  padding: var(--space-2) 0;
+}
+
+/* ---- brand ---------------------------------------------------------- */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3) var(--space-5);
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* The one place the display serif is allowed to appear at small size — it is
+   a wordmark, not running text. */
+.wordmark {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.venue {
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- navigation ----------------------------------------------------- */
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.navLink:hover {
+  background-color: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+.active {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+.navLabel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.navDescription {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-normal);
+  color: var(--color-text-muted);
+  line-height: var(--leading-snug);
+}
+
+.drawer .navLink {
+  padding: var(--space-3) var(--space-5);
+  border-radius: 0;
+  align-items: flex-start;
+}
+
+.drawer .navLink svg {
+  margin-top: 2px;
+}
+
+/* ---- footer --------------------------------------------------------- */
+
+.footer {
+  margin-top: auto;
+  padding: var(--space-4) var(--space-3) var(--space-2);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.drawer .footer {
+  padding-inline: var(--space-5);
+  margin-inline: var(--space-2);
+}
+
+.footerVenue {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.footerMeta {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}

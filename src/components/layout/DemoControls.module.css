@@ -1,0 +1,99 @@
+.wrapper {
+  position: relative;
+  display: flex;
+}
+
+.popover {
+  /* Reset the UA's centred, fixed-position default so the panel can hang off
+     the trigger instead. */
+  position: absolute;
+  inset: auto;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  margin: 0;
+  width: 19rem;
+  max-width: calc(100vw - var(--space-6));
+  padding: var(--space-4);
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-text);
+}
+
+.popover:not(:popover-open) {
+  display: none;
+}
+
+.heading {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}
+
+.note {
+  margin-top: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-snug);
+  text-wrap: pretty;
+}
+
+.field {
+  border: none;
+  padding: 0;
+  margin: var(--space-4) 0 0;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.options {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.option {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  text-align: left;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+.option:hover {
+  border-color: var(--color-border-strong);
+}
+
+.option[data-selected] {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+}
+
+.optionLabel {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+}
+
+.option[data-selected] .optionLabel {
+  color: var(--color-accent);
+}
+
+.optionHint {
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+}
