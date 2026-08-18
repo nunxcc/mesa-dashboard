@@ -1,6 +1,6 @@
 # Mesa
 
-An operations dashboard for a restaurant — the kind of internal tool a small
+An operations dashboard for a restaurant, the kind of internal tool a small
 hospitality group would actually run day to day. It answers four questions:
 how did we trade, what did every ticket earn, which dishes are worth their
 place on the menu, and what are the delivery platforms really costing us.
@@ -9,8 +9,6 @@ Built with React, TypeScript and hand-written CSS. No component library, no
 charting library, no backend.
 
 **[Live demo](#)** · _replace with your deployed URL_
-
-<!-- Add screenshots here once deployed: overview, channels, menu matrix. -->
 
 ---
 
@@ -66,7 +64,7 @@ and runs entirely in the browser.
 
 ## Decisions worth explaining
 
-### The data is generated, and the API is fake — deliberately
+### The data is generated, and the API is fake, deliberately
 
 There is no public API for a restaurant's order history, and wiring this to a
 real backend would have made it a backend project. Instead `src/data/`
@@ -75,7 +73,7 @@ latency, `AbortSignal` support, pagination, and failures you can turn on from
 the **Network** control in the top bar.
 
 That last part matters. Loading skeletons, retry paths and empty states are
-most of the work in a data-heavy UI and the least visible part of it — against
+most of the work in a data-heavy UI and the least visible part of it, against
 a mock that always resolves instantly, none of them ever appear. Being able to
 switch on "Slow" or "Always fail" means those states can be shown to someone
 rather than described.
@@ -101,7 +99,7 @@ button steps through filter changes the way people already expect. It also
 removes a whole category of bug, because there is one copy of the state rather
 than one per component.
 
-Everything arriving from the URL is treated as untrusted — `?channels=` with a
+Everything arriving from the URL is treated as untrusted `?channels=` with a
 value that is not a real channel narrows to nothing rather than reaching the
 filter logic. There are tests for exactly this.
 
@@ -109,15 +107,15 @@ filter logic. There are tests for exactly this.
 
 `d3-scale` and `d3-shape` do the maths; every element is React. This was the
 right call for four charts that all needed to look like one another and like
-the rest of the design system — a charting library would have meant fighting
+the rest of the design system, a charting library would have meant fighting
 its defaults on colour, typography and spacing to arrive somewhere similar.
 
 It also keeps them accessible on my terms: each chart carries a written
 summary of what it shows, plus a visually hidden data table, so the content is
 available to a screen reader rather than being an unlabelled `<svg>`.
 
-The heatmap is a real `<table>`, not SVG. A heatmap *is* a table — row
-headers, column headers, a value per cell — so the semantic element gives
+The heatmap is a real `<table>`, not SVG. A heatmap *is* a table, row
+headers, column headers, a value per cell, so the semantic element gives
 correct screen-reader navigation for free.
 
 ### CSS Modules over a utility framework
