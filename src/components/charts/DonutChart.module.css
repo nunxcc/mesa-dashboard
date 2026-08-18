@@ -44,20 +44,22 @@
 }
 
 .legendItem {
-  display: grid;
-  /* minmax(0, 1fr) rather than 1fr for the label track: a grid item defaults
-     to min-width: auto, so a plain 1fr refuses to shrink below its text and
-     the whole legend pushes the card - and the page - wider than the viewport.
-     The ellipsis below only works once the track is allowed to shrink. */
-  grid-template-columns: auto minmax(0, 1fr) auto auto;
-  align-items: center;
-  gap: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
   width: 100%;
   min-width: 0;
   padding: var(--space-2);
   border-radius: var(--radius-sm);
   text-align: left;
   transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.legendTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
 }
 
 .legendItem:hover {
@@ -76,34 +78,39 @@
 }
 
 .legendLabel {
+  flex: 1;
+  min-width: 0;
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-width: 0;
 }
 
+/* Indented to sit under the label rather than under the swatch, so the
+   channel name and its value read as one block. */
 .legendValue {
+  padding-left: calc(0.625rem + var(--space-2));
   font-size: var(--text-sm);
   font-weight: var(--weight-medium);
   font-variant-numeric: tabular-nums;
 }
 
 .legendShare {
+  flex-shrink: 0;
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   font-variant-numeric: tabular-nums;
-  min-width: 3ch;
   text-align: right;
 }
 
 /* Queries the card, not the window. Below this the donut and its legend stack,
    which is the only thing that fits once the card is narrow.
-   The threshold is 24rem rather than something rounder because --content-max
-   caps a third-width card body at roughly 27rem: set any higher and the
-   side-by-side layout could never trigger on any screen. */
-@container (min-width: 24rem) {
+   22rem, not something rounder: a container query measures the container's
+   *content* box, so the card body's 1.25rem of padding comes off first. A
+   third-width card on a 1600px screen leaves 23.8rem of content, and a 24rem
+   threshold missed it by a hair. */
+@container (min-width: 22rem) {
   .layout {
     grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
   }

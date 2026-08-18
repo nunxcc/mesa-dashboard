@@ -70,7 +70,10 @@ export function StatTile({
             <Icon name={direction === 'down' ? 'arrowDown' : 'arrowUp'} size={13} />
           )}
           {formatSignedPercent(change)}
-          <span className={styles['deltaLabel']}>vs previous period</span>
+          {/* "vs previous period" is truncated to "vs previous per..." once six
+              tiles share a row. The word "period" carries nothing the reader
+              needs, so it goes rather than the whole label being clipped. */}
+          <span className={styles['deltaLabel']}>vs previous</span>
         </p>
       ) : footnote ? (
         <p className={styles['footnote']}>{footnote}</p>

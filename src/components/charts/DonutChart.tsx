@@ -120,12 +120,20 @@ export function DonutChart({
               onFocus={() => setHovered(slice.id)}
               onBlur={() => setHovered(null)}
             >
-              <span className={styles['swatch']} style={{ backgroundColor: slice.color }} />
-              <span className={styles['legendLabel']}>{slice.label}</span>
-              <span className={styles['legendValue']}>{formatCompactCurrency(slice.value)}</span>
-              <span className={styles['legendShare']}>
-                {total === 0 ? '—' : formatPercent(slice.value / total, { decimals: 0 })}
+              {/*
+                Two lines rather than four columns. In a third-width card the
+                legend gets barely 200px, and a single row of
+                swatch/name/value/share squeezes the name down to "D..".
+                Stacking gives the channel name the full width it needs.
+              */}
+              <span className={styles['legendTop']}>
+                <span className={styles['swatch']} style={{ backgroundColor: slice.color }} />
+                <span className={styles['legendLabel']}>{slice.label}</span>
+                <span className={styles['legendShare']}>
+                  {total === 0 ? '—' : formatPercent(slice.value / total, { decimals: 0 })}
+                </span>
               </span>
+              <span className={styles['legendValue']}>{formatCompactCurrency(slice.value)}</span>
             </button>
           </li>
         ))}
