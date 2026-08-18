@@ -8,7 +8,7 @@ place on the menu, and what are the delivery platforms really costing us.
 Built with React, TypeScript and hand-written CSS. No component library, no
 charting library, no backend.
 
-**[Live demo](#)** · _replace with your deployed URL_
+**[Live demo](https://mesa-dashboard-lovat.vercel.app/)**
 
 ---
 
